@@ -1,0 +1,20 @@
+﻿@model Marketing.Models.Home.ApplicationModel
+
+<div class="text-center" align="center">
+    <h1>@Model.Header</h1>
+    <table cellspacing="10">
+        <tr>
+            <td><b>Code</b></td>
+            <td><b>Name</b></td>
+        </tr>
+        @foreach (var app in Model.Applications)
+        {
+            <tr>
+                <td>@app.Code</td>
+                <td>@app.Name</td>
+            </tr>
+        }
+    </table>
+    
+</div>
+

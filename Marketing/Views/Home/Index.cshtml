@@ -1,0 +1,13 @@
+﻿@model Marketing.Models.Home.IndexModel
+
+<div class="text-center" align="center">
+    <h1>@Model.Header</h1>
+
+    <table cellspacing="10">
+        <tr>
+            <td>@Html.ActionLink("Applications", "Application")</td>
+            <td>@Html.ActionLink("Banks", "Bank")</td>
+            <td>@Html.ActionLink("Bids", "Bid")</td>
+        </tr>
+    </table>
+</div>
