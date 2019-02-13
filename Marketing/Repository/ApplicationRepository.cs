@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Marketing.Data;
-using Marketing.Data.Tables;
+using Marketing.Data.Entities;
 using Marketing.Repository.Interfaces;
 
 namespace Marketing.Repository
@@ -16,10 +17,10 @@ namespace Marketing.Repository
         {
             _marketingDbContext = marketingDbContext;
 
-            Initialize();
+            InitializeAsync();
         }
 
-        private async void Initialize()
+        private async void InitializeAsync()
         {
             var isThereApps = await _marketingDbContext.Applications.AnyAsync();
 
@@ -27,7 +28,7 @@ namespace Marketing.Repository
             
             for (var i = 1; i <= 1000; i++)
             {
-                var app = new Application{Code = $"AP-{i}" , Name = $"Приложение {i}"};
+                var app = new Application{Code = $"AP-{i}" , Name = $"Приложение {i}", RecordDate = DateTime.Now };
 
                 await _marketingDbContext.AddAsync(app);
             }
@@ -35,9 +36,9 @@ namespace Marketing.Repository
             await _marketingDbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Application>> All()
+        public async Task<IEnumerable<Application>> AllAsync()
         {
-            return await _marketingDbContext.Applications.OrderBy(a => a.Code).ToListAsync();
+            return await _marketingDbContext.Applications.OrderBy(a => a.RecordDate).ToListAsync();
         }
     }
 }

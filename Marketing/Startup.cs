@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Marketing.Data;
+using Marketing.Providers;
+using Marketing.Providers.Interfaces;
 using Marketing.Repository;
 using Marketing.Repository.Interfaces;
 using Marketing.Services;
@@ -39,7 +41,7 @@ namespace Marketing
             services.AddTransient<IApplicationRepository, ApplicationRepository>();
             services.AddTransient<IBankRepository, BankRepository>();
             services.AddTransient<IBidRepository, BidRepository>();
-            services.AddTransient<IMarketingRepository, MarketingRepository>();
+            services.AddTransient<IMarketingProvider, MarketingProvider>();
 
             services.AddTransient<IMarketingService, MarketingService>();
         }

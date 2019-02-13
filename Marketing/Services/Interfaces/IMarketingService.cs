@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using Marketing.Models.Home;
+using Marketing.ViewModels.Home;
 
 namespace Marketing.Services.Interfaces
 {
     public interface IMarketingService
     {
-        Task<ApplicationModel> GetApplicationModel();
-        Task<BankModel> GetBankModel();
+        Task<ApplicationViewModel> GetApplicationViewModelAsync();
+        Task<BankViewModel> GetBankViewModelAsync();
     }
 }

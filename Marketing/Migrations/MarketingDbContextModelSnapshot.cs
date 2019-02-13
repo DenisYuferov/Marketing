@@ -16,31 +16,35 @@ namespace Marketing.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
 
-            modelBuilder.Entity("Marketing.Data.Tables.Application", b =>
+            modelBuilder.Entity("Marketing.Data.Entities.Application", b =>
                 {
                     b.Property<string>("Code")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
 
+                    b.Property<DateTime>("RecordDate");
+
                     b.HasKey("Code");
 
                     b.ToTable("Applications");
                 });
 
-            modelBuilder.Entity("Marketing.Data.Tables.Bank", b =>
+            modelBuilder.Entity("Marketing.Data.Entities.Bank", b =>
                 {
                     b.Property<string>("Bic")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
 
+                    b.Property<DateTime>("RecordDate");
+
                     b.HasKey("Bic");
 
                     b.ToTable("Banks");
                 });
 
-            modelBuilder.Entity("Marketing.Data.Tables.Bid", b =>
+            modelBuilder.Entity("Marketing.Data.Entities.Bid", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -57,6 +61,8 @@ namespace Marketing.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<DateTime>("RecordDate");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Bic");
@@ -66,13 +72,13 @@ namespace Marketing.Migrations
                     b.ToTable("Bids");
                 });
 
-            modelBuilder.Entity("Marketing.Data.Tables.Bid", b =>
+            modelBuilder.Entity("Marketing.Data.Entities.Bid", b =>
                 {
-                    b.HasOne("Marketing.Data.Tables.Bank", "Bank")
+                    b.HasOne("Marketing.Data.Entities.Bank", "Bank")
                         .WithMany()
                         .HasForeignKey("Bic");
 
-                    b.HasOne("Marketing.Data.Tables.Application", "Application")
+                    b.HasOne("Marketing.Data.Entities.Application", "Application")
                         .WithMany()
                         .HasForeignKey("Code");
                 });

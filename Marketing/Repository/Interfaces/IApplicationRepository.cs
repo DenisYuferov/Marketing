@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Marketing.Data.Tables;
+using Marketing.Data.Entities;
 
 namespace Marketing.Repository.Interfaces
 {
     public interface IApplicationRepository
     {
-        Task<IEnumerable<Application>> All();
+        Task<IEnumerable<Application>> AllAsync();
     }
 }

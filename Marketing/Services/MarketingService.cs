@@ -1,31 +1,31 @@
 ﻿using System.Threading.Tasks;
-using Marketing.Models.Home;
-using Marketing.Repository.Interfaces;
+using Marketing.Providers.Interfaces;
 using Marketing.Services.Interfaces;
+using Marketing.ViewModels.Home;
 
 namespace Marketing.Services
 {
     public class MarketingService : IMarketingService
     {
-        private readonly IMarketingRepository _marketingRepository;
+        private readonly IMarketingProvider _marketingProvider;
 
-        public MarketingService(IMarketingRepository marketingRepository)
+        public MarketingService(IMarketingProvider marketingProvider)
         {
-            _marketingRepository = marketingRepository;
+            _marketingProvider = marketingProvider;
         }
 
-        public async Task<ApplicationModel> GetApplicationModel()
+        public async Task<ApplicationViewModel> GetApplicationViewModelAsync()
         {
-            var appModel = new ApplicationModel {Applications = await _marketingRepository.Applications.All()};
+            var applicationViewModel = new ApplicationViewModel {Applications = await _marketingProvider.Applications.AllAsync()};
 
-            return appModel;
+            return applicationViewModel;
         }
 
-        public async Task<BankModel> GetBankModel()
+        public async Task<BankViewModel> GetBankViewModelAsync()
         {
-            var bankModel = new BankModel { Banks = await _marketingRepository.Banks.All() };
+            var bankViewModel = new BankViewModel { Banks = await _marketingProvider.Banks.AllAsync() };
 
-            return bankModel;
+            return bankViewModel;
         }
     }
 }

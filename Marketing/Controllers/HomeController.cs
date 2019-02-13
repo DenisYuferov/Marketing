@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Marketing.Models.Home;
 using Marketing.Services.Interfaces;
+using Marketing.ViewModels.Home;
 
 namespace Marketing.Controllers
 {
@@ -16,30 +16,30 @@ namespace Marketing.Controllers
 
         public IActionResult Index()
         {
-            var indexModel = new IndexModel();
+            var indexViewModel = new IndexViewModel();
 
-            return View(indexModel);
+            return View(indexViewModel);
         }
 
         public async Task<IActionResult> Application()
         {
-            var applicationModel = await  _marketingService.GetApplicationModel();
+            var applicationViewModel = await  _marketingService.GetApplicationViewModelAsync();
 
-            return View(applicationModel);
+            return View(applicationViewModel);
         }
 
         public async Task<IActionResult> Bank()
         {
-            var bankModel = await _marketingService.GetBankModel();
+            var bankViewModel = await _marketingService.GetBankViewModelAsync();
 
-            return View(bankModel);
+            return View(bankViewModel);
         }
 
         public IActionResult Bid()
         {
-            var bidModel = new BidModel();
+            var bidViewModel = new BidViewModel();
 
-            return View(bidModel);
+            return View(bidViewModel);
         }
     }
 }

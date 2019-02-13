@@ -12,7 +12,8 @@ namespace Marketing.Migrations
                 columns: table => new
                 {
                     Code = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    RecordDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -24,7 +25,8 @@ namespace Marketing.Migrations
                 columns: table => new
                 {
                     Bic = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    RecordDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,7 +44,8 @@ namespace Marketing.Migrations
                     EndDate = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Bic = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    RecordDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

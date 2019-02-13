@@ -1,14 +1,15 @@
-﻿using Marketing.Repository.Interfaces;
+﻿using Marketing.Providers.Interfaces;
+using Marketing.Repository.Interfaces;
 
-namespace Marketing.Repository
+namespace Marketing.Providers
 {
-    public class MarketingRepository : IMarketingRepository
+    public class MarketingProvider : IMarketingProvider
     {
         public IApplicationRepository Applications { get; set; }
         public IBankRepository Banks { get; set; }
         public IBidRepository Bids { get; set; }
 
-        public MarketingRepository (IApplicationRepository applications, IBankRepository banks, IBidRepository bids)
+        public MarketingProvider (IApplicationRepository applications, IBankRepository banks, IBidRepository bids)
         {
             Applications = applications;
             Banks = banks;

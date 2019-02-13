@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using Marketing.Data.Entities;
 
-namespace Marketing.Models.Home
+namespace Marketing.ViewModels.Home
 {
-    public class BidModel
+    public class BidViewModel
     {
-        public BidModel()
+        public BidViewModel()
         {
             Header = "Bids";
 
-            var app = new Data.Tables.Application {Code = "123", Name = "Name"};
+            var app = new Application {Code = "123", Name = "Name"};
 
-            var bank = new Data.Tables.Bank {Bic = "123123123", Name = "Банк суровый"};
+            var bank = new Bank {Bic = "123123123", Name = "Банк суровый"};
 
-            var bid = new Data.Tables.Bid
+            var bid = new Bid
             {
                 Id = 321,
                 Name = "Заявка на покупку",
@@ -25,9 +26,9 @@ namespace Marketing.Models.Home
             };
 
 
-            Bids = new List<Data.Tables.Bid> {bid};
+            Bids = new List<Bid> {bid};
         }
         public string Header { get; set; }
-        public IEnumerable<Data.Tables.Bid> Bids { get; set; }
+        public IEnumerable<Bid> Bids { get; set; }
     }
 }

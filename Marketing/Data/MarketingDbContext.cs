@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Marketing.Data.Tables;
+using Marketing.Data.Entities;
 
 namespace Marketing.Data
 {

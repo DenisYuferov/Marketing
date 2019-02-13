@@ -1,8 +1,8 @@
-﻿namespace Marketing.Models.Home
+﻿namespace Marketing.ViewModels.Home
 {
-    public class IndexModel
+    public class IndexViewModel
     {
-        public IndexModel()
+        public IndexViewModel()
         {
             Header = "Marketing";
         }

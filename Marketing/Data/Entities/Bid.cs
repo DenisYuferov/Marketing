@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Marketing.Data.Tables
+namespace Marketing.Data.Entities
 {
     public class Bid
     {
@@ -16,5 +16,6 @@ namespace Marketing.Data.Tables
         [ForeignKey("Bic")]
         public Bank Bank { get; set; }
         public string Email { get; set; }
+        public DateTime RecordDate { get; set; }
     }
 }
