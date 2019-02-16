@@ -1,0 +1,25 @@
+﻿@model Marketing.ViewModels.BanksViewModels.BanksViewModel
+
+<div class="text-center" align="center">
+    <h1>Banks</h1>
+    <a href="@Url.Action("Add")">Add</a>
+    <table cellspacing="5">
+        <tr>
+            <td><b>Code</b></td>
+            <td><b>Name</b></td>
+            <td><b>Actions</b></td>
+        </tr>
+        @foreach (var bank in Model.Banks)
+        {
+            <tr>
+                <td>@bank.Bic</td>
+                <td>@bank.Name</td>
+                <td>
+                    <a href="@Url.Action("Edit", new {bic = bank.Bic})">Edit</a>
+                    <a href="@Url.Action("Delete", new {bic = bank.Bic})">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

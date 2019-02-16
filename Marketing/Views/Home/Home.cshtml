@@ -1,0 +1,13 @@
+﻿@model Marketing.ViewModels.HomeViewModels.HomeViewModel
+
+<div class="text-center" align="center">
+    <h1>Marketing</h1>
+
+    <table cellspacing="10">
+        <tr>
+            <td>@Html.ActionLink("Applications", "GetAll", "Applications")</td>
+            <td>@Html.ActionLink("Banks", "GetAll", "Banks")</td>
+            <td>@Html.ActionLink("Bids", "GetAll", "Bids")</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+﻿@model Marketing.ViewModels.ApplicationsViewModels.ApplicationsViewModel
+
+<div class="text-center" align="center">
+    <h1>Applications</h1>
+    <a href="@Url.Action("Add")">Add</a>
+    <table cellspacing="5">
+        <tr>
+            <td><b>Code</b></td>
+            <td><b>Name</b></td>
+            <td><b>Actions</b></td>
+        </tr>
+        @foreach (var app in Model.Applications)
+        {
+            <tr>
+                <td>@app.Code</td>
+                <td>@app.Name</td>
+                <td>
+                    <a href="@Url.Action("Edit", new {code = app.Code})">Edit</a>
+                    <a href="@Url.Action("Delete", new {code = app.Code})">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

@@ -1,0 +1,20 @@
+﻿@model Marketing.ViewModels.BanksViewModels.BankEditViewModel
+
+<div class="text-center" align="center">
+    <h1>Edit</h1>
+    <form asp-action="edit" method="post">
+        <table cellspacing="5">
+            <tr>
+                <td><b>Bic</b></td>
+                <td><b>Name</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="Bic" value="@Model.Bic" readonly="readonly"/></td>
+                <td><input type="text" name="Name" value="@Model.Name" /></td>
+                <td><input type="submit" value="Save" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+

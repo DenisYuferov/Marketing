@@ -6,12 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Marketing.Data;
-using Marketing.Providers;
-using Marketing.Providers.Interfaces;
-using Marketing.Repository;
-using Marketing.Repository.Interfaces;
-using Marketing.Services;
-using Marketing.Services.Interfaces;
+using Marketing.Infrastructure.Providers;
+using Marketing.Infrastructure.Providers.Interfaces;
+using Marketing.Infrastructure.Repository;
+using Marketing.Infrastructure.Repository.Interfaces;
 
 namespace Marketing
 {
@@ -36,14 +34,13 @@ namespace Marketing
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<MarketingDbContext>(options => options.UseSqlite(@"Data Source=c:\Reps\Marketing\Marketing\Data\Marketing.db"));
+            services.AddDbContext<MarketingDbContext>(options => options.UseSqlite(@"Data Source=c:\Reps\Marketing\Marketing.Data\Marketing.db"));
 
             services.AddTransient<IApplicationRepository, ApplicationRepository>();
             services.AddTransient<IBankRepository, BankRepository>();
             services.AddTransient<IBidRepository, BidRepository>();
-            services.AddTransient<IMarketingProvider, MarketingProvider>();
 
-            services.AddTransient<IMarketingService, MarketingService>();
+            services.AddTransient<IMarketingProvider, MarketingProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
