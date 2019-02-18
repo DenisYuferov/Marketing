@@ -1,0 +1,27 @@
+﻿@model Marketing.ViewModels.BidsViewModels.BidAddViewModel
+
+<div class="text-center" align="center">
+    <h1>Add</h1>
+    <form asp-action="edit" method="post">
+        <table cellspacing="5">
+            <tr>
+                <td><b>Name</b></td>
+                <td><b>Application</b></td>
+                <td><b>EndDate</b></td>
+                <td><b>Description</b></td>
+                <td><b>Bank</b></td>
+                <td><b>Email</b></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="Name" value="@Model.Name" /></td>
+                <td>@Html.DropDownListFor(a => a.ApplicationCode, new SelectList(Model.Applications, "Code", "Name"), "")</td>
+                <td>@Html.TextBoxFor(e => e.EndDate, $"{Model.EndDate:d}")</td>
+                <td><input type="text" name="Description" value="@Model.Description" /></td>
+                <td>@Html.DropDownListFor(b => b.BankBic, new SelectList(Model.Banks, "Bic", "Name"), "")</td>
+                <td><input type="text" name="Email" value="@Model.Email" /></td>
+                <td><input type="submit" value="Save" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+

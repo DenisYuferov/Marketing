@@ -41,7 +41,7 @@ namespace Marketing.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
                     Code = table.Column<string>(nullable: true),
-                    EndDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Bic = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),

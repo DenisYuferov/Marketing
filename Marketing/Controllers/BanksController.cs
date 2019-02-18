@@ -32,9 +32,9 @@ namespace Marketing.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(BankEditViewModel model)
+        public async Task<IActionResult> Add(BankEditViewModel viewModel)
         {
-            var bank = new Bank { Bic = model.Bic, Name = model.Name, RecordDate = DateTime.Now };
+            var bank = new Bank { Bic = viewModel.Bic, Name = viewModel.Name, RecordDate = DateTime.Now };
 
             await _marketingProvider.Banks.UpsertAsync(bank);
 
@@ -52,9 +52,9 @@ namespace Marketing.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(BankEditViewModel model)
+        public async Task<IActionResult> Edit(BankEditViewModel viewModel)
         {
-            var bank = new Bank { Bic = model.Bic, Name = model.Name, RecordDate = DateTime.Now };
+            var bank = new Bank { Bic = viewModel.Bic, Name = viewModel.Name, RecordDate = DateTime.Now };
 
             await _marketingProvider.Banks.UpsertAsync(bank);
 
@@ -62,9 +62,9 @@ namespace Marketing.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Delete(BankEditViewModel model)
+        public async Task<IActionResult> Delete(BankEditViewModel viewModel)
         {
-            await _marketingProvider.Banks.DeleteAsync(model.Bic);
+            await _marketingProvider.Banks.DeleteAsync(viewModel.Bic);
 
             return Redirect("/Banks/GetAll");
         }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Marketing.Data.Migrations
 {
     [DbContext(typeof(MarketingDbContext))]
-    [Migration("20190216065733_InitialCreate")]
+    [Migration("20190218085238_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,7 +59,7 @@ namespace Marketing.Data.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<DateTime>("EndDate");
+                    b.Property<DateTime?>("EndDate");
 
                     b.Property<string>("Name");
 

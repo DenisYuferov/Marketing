@@ -5,11 +5,11 @@ namespace Marketing.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Home()
         {
             var homeViewModel = new HomeViewModel();
 
-            return View("Home", homeViewModel);
+            return View(homeViewModel);
         }
     }
 }

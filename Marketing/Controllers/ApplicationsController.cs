@@ -26,15 +26,15 @@ namespace Marketing.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            var applicationEditViewModel = new ApplicationAddViewModel();
+            var applicationAddViewModel = new ApplicationAddViewModel();
 
-            return View(applicationEditViewModel);
+            return View(applicationAddViewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(ApplicationEditViewModel model)
+        public async Task<IActionResult> Add(ApplicationAddViewModel viewModel)
         {
-            var application = new Application { Code = model.Code, Name = model.Name, RecordDate = DateTime.Now };
+            var application = new Application { Code = viewModel.Code, Name = viewModel.Name, RecordDate = DateTime.Now };
 
             await _marketingProvider.Applications.UpsertAsync(application);
 
@@ -52,9 +52,9 @@ namespace Marketing.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(ApplicationEditViewModel model)
+        public async Task<IActionResult> Edit(ApplicationEditViewModel viewModel)
         {
-            var application = new Application{Code = model.Code, Name = model.Name, RecordDate = DateTime.Now};
+            var application = new Application{Code = viewModel.Code, Name = viewModel.Name, RecordDate = DateTime.Now};
 
             await _marketingProvider.Applications.UpsertAsync(application);
 
@@ -62,9 +62,9 @@ namespace Marketing.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Delete(ApplicationEditViewModel model)
+        public async Task<IActionResult> Delete(ApplicationEditViewModel viewModel)
         {
-            await _marketingProvider.Applications.DeleteAsync(model.Code);
+            await _marketingProvider.Applications.DeleteAsync(viewModel.Code);
 
             return Redirect("/Applications/GetAll");
         }

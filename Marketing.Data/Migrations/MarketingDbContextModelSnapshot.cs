@@ -57,7 +57,7 @@ namespace Marketing.Data.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<DateTime>("EndDate");
+                    b.Property<DateTime?>("EndDate");
 
                     b.Property<string>("Name");
 

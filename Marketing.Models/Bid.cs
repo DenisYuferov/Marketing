@@ -11,7 +11,7 @@ namespace Marketing.Models
         public string Name { get; set; }
         [ForeignKey("Code")]
         public Application Application { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public string Description { get; set; }
         [ForeignKey("Bic")]
         public Bank Bank { get; set; }
